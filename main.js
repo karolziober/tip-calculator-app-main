@@ -13,6 +13,8 @@ class TipCalculator {
     this.tipPerPerson = document.getElementById("tip-person");
     this.tipTotal = document.getElementById("tip-total");
     this.currentTip = 0;
+
+    this.init();
   }
 
   init() {
@@ -107,9 +109,7 @@ class TipCalculator {
   handleValidation() {
     this.inputNums.forEach((item) => {
       item.addEventListener("input", (e) => {
-        const id = e.target.getAttribute("id");
-        const locator = document.getElementById(id);
-        this.numValidation(locator);
+        this.numValidation(e.target);
       });
     });
   }
@@ -151,5 +151,4 @@ class TipCalculator {
   }
 }
 
-const app = new TipCalculator();
-app.init();
+new TipCalculator();
