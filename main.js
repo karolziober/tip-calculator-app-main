@@ -69,13 +69,13 @@ class TipCalculator {
   };
 
   tipCalcTotal = (tipValue) => {
-    const people = this.inputPeople.value;
-    const bill = this.valueBill.value;
+    const people = Number(this.inputPeople.value);
+    const bill = Number(this.valueBill.value);
 
     if (people > 0 && bill > 0) {
       const tip = this.tipCalcPerson(tipValue);
       this.tipPerPerson.textContent = `$${tip.toFixed(2)}`;
-      this.tipTotal.textContent = `$${(bill / people).toFixed(2)}`;
+      this.tipTotal.textContent = `$${((bill + tip) / people).toFixed(2)}`;
     } else {
       this.tipPerPerson.textContent = "$0.00";
       this.tipTotal.textContent = "$0.00";
