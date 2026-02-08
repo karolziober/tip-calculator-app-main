@@ -1,44 +1,97 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Tip calculator app</title>
+    <script src="main.js" defer></script>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link href="style.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Poppins:wght@200;400;500;600;700&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
-</head>
-<body>
+    <title>Frontend Mentor | Tip calculator app</title>
+  </head>
+  <body>
+    <header>SPLI<br />TTER</header>
+    <main>
+      <section class="top-left">
+        <div class="section-bill input-section">
+          <div class="section-heading">
+            <label class="label-dark" for="bill">Bill</label>
+            <span class="hidden" for="num-people"
+              >Has to be greater than 0</span
+            >
+          </div>
 
-  Bill
+          <div class="form form-bill">
+            <input type="number" id="bill" class="val-input" />
+          </div>
+        </div>
+        <fieldset class="section-tips">
+          <legend class="label-dark">Select Tip %</legend>
+          <div class="tips">
+            <button type="button" class="btn" id="tip-5" data-value="5">
+              5%
+            </button>
+            <button type="button" class="btn" id="tip-10" data-value="10">
+              10%
+            </button>
+            <button type="button" class="btn" id="tip-15" data-value="15">
+              15%
+            </button>
+            <button type="button" class="btn" id="tip-25" data-value="25">
+              25%
+            </button>
+            <button type="button" class="btn" id="tip-50" data-value="50">
+              50%
+            </button>
+            <input type="number" placeholder="Custom" id="custom" />
+          </div>
+        </fieldset>
+        <div class="people-number input-section">
+          <div class="section-heading">
+            <label class="label-dark" for="num-people">Number of People</label>
+            <span class="hidden" for="num-people"
+              >Has to be greater than 0</span
+            >
+          </div>
 
-  Select Tip %
-  5%
-  10%
-  15%
-  25%
-  50%
-  Custom
-
-  Number of People
-
-  Tip Amount
-  / person
-
-  Total
-  / person
-
-  Reset
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
-</body>
+          <div class="form form-people">
+            <input type="number" id="num-people" class="val-input" step="1" />
+          </div>
+        </div>
+      </section>
+      <section class="bottom-right">
+        <div class="tip-calc">
+          <div class="tip-upper">
+            <div class="tip-combined">
+              <div class="tip-amount-person">
+                <span class="label-light">Tip Amount</span>
+                <p>/ person</p>
+              </div>
+              <div class="tip-amount" id="tip-person">$0.00</div>
+            </div>
+            <div class="tip-combined">
+              <div class="tip-total">
+                <span class="label-light">Total</span>
+                <p>/ person</p>
+              </div>
+              <div class="tip-amount" id="tip-total">$0.00</div>
+            </div>
+          </div>
+          <button type="button" class="btn" id="reset">RESET</button>
+        </div>
+      </section>
+    </main>
+  </body>
 </html>
