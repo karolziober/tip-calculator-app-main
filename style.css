@@ -51,11 +51,15 @@ body {
 header {
   margin-block-start: 2rem;
   margin-block-end: 2rem;
+  /* font: var(--text-preset-4);
+  letter-spacing: 0.5rem;
+  color: var(--grey-600); */
+}
+h1 {
   font: var(--text-preset-4);
   letter-spacing: 0.5rem;
   color: var(--grey-600);
 }
-
 main {
   background-color: var(--white);
   width: 100%;
@@ -67,7 +71,8 @@ main {
 
 input {
   width: 100%;
-  height: 3rem;
+  /* height: 3rem; */
+  line-height: 1.5;
   border: 0;
   background-color: var(--grey-50);
   padding-block-start: 0.5rem;
@@ -93,7 +98,7 @@ input#num-people {
 
 input#bill:hover,
 input#num-people:hover {
-  border: 0.125rem solid var(--green-400);
+  outline: 0.125rem solid var(--green-400);
 }
 
 input::placeholder {
@@ -104,7 +109,7 @@ input::placeholder {
   text-align: left;
 }
 .input-error {
-  border: 0.125rem solid var(--orange-400);
+  outline: 0.125rem solid var(--orange-400);
 }
 
 .section-bill,

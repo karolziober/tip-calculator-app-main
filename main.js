@@ -24,25 +24,12 @@ class TipCalculator {
     this.handleValidation();
   }
 
-  //   addErrorClass = (input) => {
-  //     input
-  //       .closest(".input-section")
-  //       .querySelector("span")
-  //       .classList.add("error");
-  //   };
-  //   removeErrorClass = (input) => {
-  //     input
-  //       .closest(".input-section")
-  //       .querySelector("span")
-  //       .classList.remove("hidden");
-  //   };
   addErrorMsg = (input) => {
-    // this.addErrorClass(input);
     input
       .closest(".input-section")
       .querySelector("span")
       .classList.add("error");
-    // this.removeErrorClass(input);
+
     input
       .closest(".input-section")
       .querySelector("span")
@@ -50,8 +37,6 @@ class TipCalculator {
   };
 
   removeErrorMsg = (input) => {
-    // this.removeErrorClass(input);
-    // this.addErrorClass(input);
     input
       .closest(".input-section")
       .querySelector("span")
@@ -73,19 +58,25 @@ class TipCalculator {
     }
   };
 
-  tipCalcPerson = (tip) =>
-    Number(
-      (
-        (this.valueBill.value * (tip / 100)) /
-        Math.floor(this.inputPeople.value)
-      ).toFixed(2),
-    );
+  tipCalcPerson = (tip) => {
+    const people = Number(this.inputPeople.value);
+    if (!people || people <= 0) return 0;
+
+    const tipAmount = (this.valueBill.value * (tip / 100)) / people;
+    return Number(tipAmount.toFixed(2));
+  };
 
   tipCalcTotal = (tipValue) => {
-    if (this.inputPeople.value >= 1 && this.valueBill.value >= 1) {
+    const people = this.inputPeople.value;
+    const bill = this.valueBill.value;
+
+    if (people > 0 && bill > 0) {
       const tip = this.tipCalcPerson(tipValue);
       this.tipPerPerson.textContent = `$${tip.toFixed(2)}`;
-      this.tipTotal.textContent = `$${(Number(this.valueBill.value) / Math.floor(this.inputPeople.value) + Number(tip)).toFixed(2)}`;
+      this.tipTotal.textContent = `$${(bill / people).toFixed(2)}`;
+    } else {
+      this.tipPerPerson.textContent = "$0.00";
+      this.tipTotal.textContent = "$0.00";
     }
   };
 
